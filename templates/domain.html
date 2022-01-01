@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ignite - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="static/css/aos.css">
+
+    <link rel="stylesheet" href="static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="static/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/icomoon.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+    {#    <script src="../static/js/echarts.js"></script>#}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Ignite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item active"><a href="" class="nav-link">Domain</a></li>
+                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Get started</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<div class="hero-wrap hero-wrap-2" style="background-image: url('static/image/bg_2.jpg');"
+     data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-8 ftco-animate text-center text-center mt-5">
+                <p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>Domain</span></p>
+                <h1 class="mb-3 bread">豆瓣电影Top250评分分布图</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main" style="width: 100% ;height:400px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '豆瓣评分汇总'
+        },
+        tooltip: {},
+        legend: {
+            data: ['评分']
+        },
+        xAxis: {
+            type: 'category',
+            data:{{ score|tojson }}
+            {#data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']#}
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name: '评分',
+                type: 'bar',
+                data: {{ num }},
+                barWidth: '60%'
+                {#data: [5, 20, 36, 10, 10, 20]#}
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"></circle>
+    </svg>
+</div>
+
+
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.easing.1.3.js"></script>
+<script src="static/js/jquery.waypoints.min.js"></script>
+<script src="static/js/jquery.stellar.min.js"></script>
+<script src="static/js/owl.carousel.min.js"></script>
+<script src="static/js/jquery.magnific-popup.min.js"></script>
+<script src="static/js/aos.js"></script>
+<script src="static/js/jquery.animateNumber.min.js"></script>
+<script src="static/js/scrollax.min.js"></script>
+
+<script src="static/js/google-map.js"></script>
+<script src="static/js/main.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+<!-- Uncomment this line if you want to dataTool extension
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/extension/dataTool.min.js"></script>
+-->
+<!-- Uncomment this line if you want to use gl extension
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+-->
+<!-- Uncomment this line if you want to echarts-stat extension
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+-->
+<!-- Uncomment this line if you want to use map
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/map/js/china.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/map/js/world.js"></script>
+-->
+<!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+</body>
+</html>
